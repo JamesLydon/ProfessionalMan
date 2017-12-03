@@ -29,8 +29,9 @@ while True:
 					api.retweet(newesttweet)
 					sent_Tweet = True
 					print "retweeted " + retweetlist[0].text.encode('UTF-8')
-					print "sleeping 15 seconds"
-					time.sleep(30)
+					randomInterval = random.randint(10,70)
+					print "sleeping " + randomInterval + " seconds"
+					time.sleep(randomInterval)
 				except: 
 					print "Bad retweet. Skipping"
 		else:
@@ -40,21 +41,12 @@ while True:
 					print "tweeting " + tweetToTweet
 					api.update_status(status=tweetToTweet)
 					sent_Tweet = True
-					print "sleeping 15 seconds"
-					time.sleep(30)
+					randomInterval = random.randint(10,70)
+					print "sleeping " + randomInterval + " seconds"
+					time.sleep(randomInterval)
 				except:
 					print "Bad tweet. Skipping"
 
 	else:
 		print "I'm asleep now because I'm a working man. Sleeping 2000 seconds to check if it's morning."
 		time.sleep(2000)
-
-"""searched_tweets = api.search(q="test")
-for tweet in searched_tweets:
-	if 8 < datetime.datetime.now().hour < 20:
-		try:
-			print(tweet[0].text)
-		except: pass
-	else:
-		print "waiting"
-		time.sleep(10000)"""
