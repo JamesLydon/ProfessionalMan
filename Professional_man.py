@@ -26,7 +26,7 @@ while True:
 			while not sent_Tweet:
 				try:
 					buzzword = random.choice(query_list)
-					print "Random buzzword is" + buzzword
+					print "Random buzzword is " + buzzword
 					retweetlist = api.search(q=buzzword, lang="en")
 					newesttweet = retweetlist[0].id
 					print "Retweeting " + retweetlist[0].text.encode('UTF-8')
