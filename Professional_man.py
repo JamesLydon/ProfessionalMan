@@ -26,26 +26,27 @@ while True:
 			while not sent_Tweet:
 				try:
 					buzzword = random.choice(query_list)
+					print "Random buzzword is" + buzzword
 					retweetlist = api.search(q=buzzword, lang="en")
 					newesttweet = retweetlist[0].id
+					print "Retweeting " + retweetlist[0].text.encode('UTF-8')
 					api.retweet(newesttweet)
 					sent_Tweet = True
-					print "retweeting " + retweetlist[0].text.encode('UTF-8')
 					randomInterval = random.randint(600,4200)
-					print "sleeping " + str(randomInterval) + " seconds"
+					print "Sleeping " + str(randomInterval) + " seconds"
 					time.sleep(randomInterval)
-				except: 
+				except:
 					++bad_retweet
 					print "Bad retweet. Skipping"""
 		else:
 			while not sent_Tweet:
 				try:
 					tweetToTweet = text_model.make_sentence()
-					print "tweeting " + tweetToTweet
+					print "Tweeting " + tweetToTweet
 					api.update_status(status=tweetToTweet)
 					sent_Tweet = True
 					randomInterval = random.randint(10,70)
-					print "sleeping " + str(randomInterval) + " seconds"
+					print "Sleeping " + str(randomInterval) + " seconds"
 					time.sleep(randomInterval)
 				except:
 					print "Bad tweet. Skipping"
