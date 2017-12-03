@@ -16,11 +16,13 @@ with open("motivational_quotes.txt") as f:
 
 text_model = markovify.Text(text, state_size=2)
 
+
 while True:
 	sent_Tweet=False
+	bad_retweet=0
 	if 8 < datetime.datetime.now().hour < 21:
 		randomNow = random.random()
-		if randomNow > .25:
+		if randomNow > .25 and bad_retweet < 2:
 			while not sent_Tweet:
 				try:
 					buzzword = random.choice(query_list)
@@ -28,12 +30,13 @@ while True:
 					newesttweet = retweetlist[0].id
 					api.retweet(newesttweet)
 					sent_Tweet = True
-					print "retweeted " + retweetlist[0].text.encode('UTF-8')
-					randomInterval = random.randint(10,70)
-					print "sleeping " + randomInterval + " seconds"
+					print "retweeting " + retweetlist[0].text.encode('UTF-8')
+					randomInterval = random.randint(600,4200)
+					print "sleeping " + str(randomInterval) + " seconds"
 					time.sleep(randomInterval)
 				except: 
-					print "Bad retweet. Skipping"
+					++bad_retweet
+					print "Bad retweet. Skipping"""
 		else:
 			while not sent_Tweet:
 				try:
