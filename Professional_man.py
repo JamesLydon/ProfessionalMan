@@ -26,7 +26,7 @@ while True:
 			while not sent_Tweet:
 				try:
 					buzzword = random.choice(query_list)
-					retweetlist = api.search(q=buzzword)
+					retweetlist = api.search(q=buzzword, lang="en")
 					newesttweet = retweetlist[0].id
 					api.retweet(newesttweet)
 					sent_Tweet = True
