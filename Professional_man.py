@@ -3,6 +3,7 @@ import datetime
 import time
 import random
 import markovify
+import pytz
 
 
 auth = tweepy.OAuthHandler("oWy8QTMkNcmJbTXoSXayV5TwX", "CXuNf84gGANCbgZMVidLpP84sm76rvvE7ybLbjd0Ssm8kh0Cjl")
@@ -10,6 +11,8 @@ auth.set_access_token("937031523546656769-VOOIfMebro9ppkATsqKzn1nIS6bpsHp", "pnz
 
 api = tweepy.API(auth)
 query_list = open('buzzwords.txt').read().splitlines()
+
+
 
 with open("motivational_quotes.txt") as f:
     text = f.read()
@@ -20,7 +23,7 @@ text_model = markovify.Text(text, state_size=2)
 while True:
 	sent_Tweet=False
 	bad_retweet=0
-	if 8 < datetime.datetime.now().hour < 21:
+	if 8 < datetime.datetime.now(pytz.timezone('US/Eastern')).hour < 21:
 		randomNow = random.random()
 		if randomNow > .25 and bad_retweet < 2:
 			while not sent_Tweet:
