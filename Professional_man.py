@@ -45,7 +45,7 @@ while True:
 					print "Tweeting " + tweetToTweet
 					api.update_status(status=tweetToTweet)
 					sent_Tweet = True
-					randomInterval = random.randint(10,70)
+					randomInterval = random.randint(600,4200)
 					print "Sleeping " + str(randomInterval) + " seconds"
 					time.sleep(randomInterval)
 				except:
