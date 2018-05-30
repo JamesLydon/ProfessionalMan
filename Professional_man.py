@@ -6,8 +6,8 @@ import markovify
 import pytz
 
 
-auth = tweepy.OAuthHandler("oWy8QTMkNcmJbTXoSXayV5TwX", "CXuNf84gGANCbgZMVidLpP84sm76rvvE7ybLbjd0Ssm8kh0Cjl")
-auth.set_access_token("937031523546656769-VOOIfMebro9ppkATsqKzn1nIS6bpsHp", "pnzXBEFbXW1Z2Cv3xm2wdd11knVXjUgptiQQnBHMFda00")
+auth = tweepy.OAuthHandler("nJ06EaFc4VRKxgyDvjS2pnViR", "ztUx2SwgzUsWE9US4OO1wFm6KiKkdQRVLhbvFEBjWZRih7d77r")
+auth.set_access_token("937031523546656769-65VYGGTefvYvDIPqzgu49bq1QJOMKO4", "IjPo5zuqj6IDEB9HY6WwSkNCoDuj9JfhfercFKYZnOTJM")
 
 api = tweepy.API(auth)
 query_list = open('buzzwords.txt').read().splitlines()
@@ -27,7 +27,7 @@ while True:
 		randomNow = random.random()
 		if randomNow > .25 and bad_retweet < 2:
 			while not sent_Tweet:
-				try:
+                                try:
 					buzzword = random.choice(query_list)
 					print "Random buzzword is '" + buzzword + "'"
 					retweetlist = api.search(q=buzzword, lang="en")
@@ -38,7 +38,7 @@ while True:
 					randomInterval = random.randint(600,4200)
 					print "Sleeping " + str(randomInterval) + " seconds"
 					time.sleep(randomInterval)
-				except:
+                                except:
 					++bad_retweet
 					print "Bad retweet. Skipping"""
 		else:
