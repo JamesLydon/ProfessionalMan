@@ -6,8 +6,10 @@ import markovify
 import pytz
 
 
-auth = tweepy.OAuthHandler("nJ06EaFc4VRKxgyDvjS2pnViR", "ztUx2SwgzUsWE9US4OO1wFm6KiKkdQRVLhbvFEBjWZRih7d77r")
-auth.set_access_token("937031523546656769-65VYGGTefvYvDIPqzgu49bq1QJOMKO4", "IjPo5zuqj6IDEB9HY6WwSkNCoDuj9JfhfercFKYZnOTJM")
+#consumer_token, consumer_secret
+auth = tweepy.OAuthHandler("RVKCnjsVumv5IYlusASw11eeS", "n3SwC4uMgX2ZVEzRapYJZPQgohBKrGIXhCW1W50SFvoDmsZiPM")
+#key, secret
+auth.set_access_token("937031523546656769-ghkofIHf0fB01tMnblF2TQHFrtsQRv2", "buQyBSKtdaUsfdZ3Rfq4gPvnfIRCcPCESLtZQMXF8px7o")
 
 api = tweepy.API(auth)
 query_list = open('buzzwords.txt').read().splitlines()
@@ -23,7 +25,7 @@ text_model = markovify.Text(text, state_size=2)
 while True:
 	sent_Tweet=False
 	bad_retweet=0
-	if 8 < datetime.datetime.now(pytz.timezone('US/Eastern')).hour < 21:
+	if 8 < datetime.datetime.now(pytz.timezone('US/Eastern')).hour < 18:
 		randomNow = random.random()
 		if randomNow > .25 and bad_retweet < 2:
 			while not sent_Tweet:
