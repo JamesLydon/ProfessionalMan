@@ -7,9 +7,9 @@ import pytz
 
 
 #consumer_token, consumer_secret
-auth = tweepy.OAuthHandler("RVKCnjsVumv5IYlusASw11eeS", "n3SwC4uMgX2ZVEzRapYJZPQgohBKrGIXhCW1W50SFvoDmsZiPM")
+auth = tweepy.OAuthHandler("obscured", "obscured")
 #key, secret
-auth.set_access_token("937031523546656769-ghkofIHf0fB01tMnblF2TQHFrtsQRv2", "buQyBSKtdaUsfdZ3Rfq4gPvnfIRCcPCESLtZQMXF8px7o")
+auth.set_access_token("obscured", "obscured")
 
 api = tweepy.API(auth)
 query_list = open('buzzwords.txt').read().splitlines()
